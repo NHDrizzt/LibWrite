@@ -1,7 +1,24 @@
-<html>
+<!DOCTYPE hmtl>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Library</title>
+</head>
 
 <body>
-<h3>Ola Mundo</h3>
+	<h3>Lista de Eventos</h3>
+	<h3><a href="/cadastrarEvento"> Ir para o Cadastro de Evento</a></h3>
+
+	<div th:each="evento : ${evento}">
+		<div class="row">
+			<p><span th:text="${evento.nome}"></span></p>
+			<p><span th:text="${evento.local}"></span></p>
+			<p><span th:text="${evento.data}"></span></p>
+			<p><span th:text="${evento.horario}"></span></p>
+		</div>
+	</div>
+	
 </body>
 
 </html>
