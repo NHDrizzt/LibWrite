@@ -14,9 +14,8 @@
 </head>
 
 <body>
-	<h3>Lista de Eventos</h3>
-	<h3><a href="/cadastrarEvento" class="waves-effect waves-light btn-small"><i class="material-icons left">add_circle_button</i>Cadastro de Evento</a></h3>
-	<table>
+	<h3 class="container">Lista de Eventos</h3></br>	
+	<table class="container">
 		<thead>
 			<tr><!-- th cabeçalho -->
 				<th>Nome</th>
@@ -33,7 +32,10 @@
 				<td><span th:text="${evento.horario}"></span></td>
 			</tr>
 		</tbody>	
+	
 	</table>
+		<h3 class="container"><a href="/cadastrarEvento" class="waves-effect waves-light btn-small">Cadastro de Evento</a></h3>
+	
 	 <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
