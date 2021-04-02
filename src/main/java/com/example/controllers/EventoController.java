@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.models.Evento;
+import com.example.models.Livro;
 import com.example.repository.EventoRepository;
+import com.example.repository.LivroRepository;
 
 @Controller
 public class EventoController {
 	//injeção de dependencia(cria nova instancia automaticamente toda vez q e chamado)
 	@Autowired 
 	private EventoRepository er;
+	@Autowired 
+	private LivroRepository lr;
 	
 	@RequestMapping(value="/cadastrarEvento", method=RequestMethod.GET)
 	public String form() {
@@ -36,11 +40,19 @@ public class EventoController {
 		return mv;
 	}
 	
-	@RequestMapping("/detalhesEvento/{codigo}")
+	@RequestMapping(value="/detalhesEvento/{codigo}", method=RequestMethod.GET)
 	public ModelAndView detalhesEvento(@PathVariable("codigo") long codigo) {
 		Evento evento =er.findByCodigo(codigo); //invoca o metodo no repository do crud para procurar o evento com o determinado codigo e guarda-lo na var evento.
 		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
 		mv.addObject("evento", evento);
 		return mv;
+	}
+	@RequestMapping(value="/detalhesEvento/{codigo}", method=RequestMethod.POST)
+	public String detalhesEvento(@PathVariable("codigo") long codigo, Livro livro) {
+		Evento evento =er.findByCodigo(codigo);
+		livro.setEvento(evento);
+		lr.save(livro); 
+		
+		return "redirect:/detalhesEvento/{codigo}";
 	}
 }

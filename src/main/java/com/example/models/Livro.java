@@ -1,13 +1,17 @@
 package com.example.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro {
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int id;
+	
 	private String nomeLivro;
 	private String genero;
 	
@@ -32,10 +36,10 @@ public class Livro {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNomelivro() {
+	public String getNomeLivro() {
 		return nomeLivro;
 	}
-	public void setNomelivro(String nomeLivro) {
+	public void setNomeLivro(String nomeLivro) {
 		this.nomeLivro = nomeLivro;
 	}
 }
