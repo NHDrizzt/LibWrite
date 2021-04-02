@@ -36,10 +36,10 @@ public class EventoController {
 		return mv;
 	}
 	
-	@RequestMapping("/{codigo}")
+	@RequestMapping("/detalhesEvento/{codigo}")
 	public ModelAndView detalhesEvento(@PathVariable("codigo") long codigo) {
 		Evento evento =er.findByCodigo(codigo); //invoca o metodo no repository do crud para procurar o evento com o determinado codigo e guarda-lo na var evento.
-		ModelAndView mv = new ModelAndView("detalhesEvento");
+		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
 		mv.addObject("evento", evento);
 		return mv;
 	}
