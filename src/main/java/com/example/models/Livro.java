@@ -5,14 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Livro {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int id;
-	
+	@NotEmpty
 	private String nomeLivro;
+	@NotEmpty
 	private String genero;
 	
 	@ManyToOne

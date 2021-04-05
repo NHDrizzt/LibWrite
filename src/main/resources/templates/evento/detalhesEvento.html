@@ -23,6 +23,9 @@
 			<p>Data: <span th:text="${evento.data}"></span></p>
 			<p>Horario: <span th:text="${evento.horario}"></span></p>
 		</div>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
+		
 		<form method="post">
 			Nome do Livro:<input type="text" value="" name="nomeLivro"/>
 			Genero: <input type="text" value="" name="genero"/>
