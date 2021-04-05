@@ -30,6 +30,20 @@
 		</form>
 	</div>
 	
+	<div class="container" th:each="livro : ${livros}">
+		<h5>
+			<div>
+				<div >
+					Nome: <span th:text="${livro.nomeLivro}"></span>
+				</div>
+				<div >
+					Genero: <span th:text="${livro.genero}"></span>
+				</div>
+				
+			</div>
+		</h5>
+	</div>
+	
 	
 		<h3 class="container"><a href="/eventos" class="waves-effect waves-light btn-small">Voltar</a></h3>
 	

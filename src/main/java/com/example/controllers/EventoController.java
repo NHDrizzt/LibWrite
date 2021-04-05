@@ -45,6 +45,9 @@ public class EventoController {
 		Evento evento =er.findByCodigo(codigo); //invoca o metodo no repository do crud para procurar o evento com o determinado codigo e guarda-lo na var evento.
 		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
 		mv.addObject("evento", evento);
+		
+		Iterable<Livro> livros = lr.findByEvento(evento);
+		mv.addObject("livros", livros);
 		return mv;
 	}
 	@RequestMapping(value="/detalhesEvento/{codigo}", method=RequestMethod.POST)
