@@ -1,6 +1,14 @@
-footer {
-    clear: both;
-    position: relative;
-    height: 200px;
-    margin-top: -200px;
+body{ height:100vh; margin:0; }
+
+header{ min-height:50px; background:lightcyan; }
+footer{ min-height:50px; background:PapayaWhip; }
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+}
+
+footer{
+  margin-top:auto; 
 }
